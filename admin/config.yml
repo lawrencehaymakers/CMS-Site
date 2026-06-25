@@ -1,0 +1,136 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+
+  # ── HOME PAGE ──
+  - name: "home"
+    label: "Home Page"
+    files:
+      - name: "home"
+        label: "Home Page Content"
+        file: "_data/home.json"
+        fields:
+          - { label: "Hero Line 1", name: "hero_line1", widget: "string" }
+          - { label: "Hero Line 2 (yellow)", name: "hero_line2", widget: "string" }
+          - { label: "Hero Line 3", name: "hero_line3", widget: "string" }
+          - { label: "Hero Subheading", name: "hero_sub", widget: "text" }
+          - { label: "Tryout CTA Headline", name: "cta_headline", widget: "string" }
+          - { label: "Tryout CTA Subtext", name: "cta_sub", widget: "string" }
+
+  # ── TRYOUTS PAGE ──
+  - name: "tryouts"
+    label: "Tryouts Page"
+    files:
+      - name: "tryouts"
+        label: "Tryouts Page Content"
+        file: "_data/tryouts.json"
+        fields:
+          - { label: "Hero Subheading", name: "hero_sub", widget: "text" }
+          - { label: "Date & Location Status", name: "date_status", widget: "string" }
+          - { label: "Date Detail Text", name: "date_detail", widget: "text" }
+          - { label: "Philosophy Paragraph", name: "philosophy", widget: "text" }
+          - { label: "Google Form Embed URL", name: "form_url", widget: "string", required: false, hint: "Paste the src URL from your Google Form's embed code. Leave blank to show a 'coming soon' placeholder." }
+          - label: "What to Bring List"
+            name: "bring_items"
+            widget: "list"
+            field: { label: "Item", name: "item", widget: "string" }
+
+  # ── PHILOSOPHY PAGE ──
+  - name: "philosophy"
+    label: "Philosophy Page"
+    files:
+      - name: "philosophy"
+        label: "Philosophy Page Content"
+        file: "_data/philosophy.json"
+        fields:
+          - { label: "Page Intro", name: "intro", widget: "text" }
+          - label: "Philosophy Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+
+  # ── SCHEDULE PAGE ──
+  - name: "schedule"
+    label: "Schedule Page"
+    files:
+      - name: "schedule"
+        label: "Schedule Page Content"
+        file: "_data/schedule.json"
+        fields:
+          - { label: "Page Intro", name: "intro", widget: "text" }
+          - { label: "Empty State Message", name: "empty_msg", widget: "string", hint: "Shown when there are no events listed." }
+          - label: "Events"
+            name: "events"
+            widget: "list"
+            required: false
+            hint: "Add games, practices, and tournaments. Leave empty to show the 'coming soon' message."
+            fields:
+              - { label: "Date", name: "date", widget: "string", hint: "e.g. Tue, Apr 1" }
+              - { label: "Type", name: "type", widget: "select", options: ["Game", "Practice", "Tournament"] }
+              - { label: "Details", name: "details", widget: "string", hint: "e.g. vs. Team Name" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "Time", name: "time", widget: "string", hint: "e.g. 6:00 PM" }
+
+  # ── TEAM PAGE ──
+  - name: "team"
+    label: "Team Page"
+    files:
+      - name: "team"
+        label: "Team Page Content"
+        file: "_data/team.json"
+        fields:
+          - { label: "Page Intro", name: "intro", widget: "text" }
+          - { label: "Roster Status Note", name: "roster_note", widget: "string", hint: "Shown when no players are listed yet." }
+          - label: "Coaches"
+            name: "coaches"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Initials", name: "initials", widget: "string", hint: "e.g. RL" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Type", name: "type", widget: "select", options: ["head", "asst"] }
+          - label: "Roster"
+            name: "players"
+            widget: "list"
+            required: false
+            hint: "Add players after tryouts."
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Number", name: "number", widget: "string" }
+              - { label: "Position(s)", name: "position", widget: "string" }
+
+  # ── UPDATES / FROM THE DUGOUT ──
+  - name: "updates"
+    label: "Updates (From the Dugout)"
+    label_singular: "Post"
+    folder: "posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Tag", name: "tag", widget: "select", options: ["Game Recap", "Practice", "Tournament", "Season Update", "Announcement", "Season Wrap"] }
+      - { label: "Body", name: "body", widget: "text" }
+
+  # ── TEAM PACKET ──
+  - name: "packet"
+    label: "Team Packet"
+    files:
+      - name: "packet"
+        label: "Team Packet Content"
+        file: "_data/packet.json"
+        fields:
+          - { label: "Season Structure", name: "season_structure", widget: "text" }
+          - { label: "Communication Note", name: "communication_note", widget: "text" }
+          - { label: "Attendance Policy", name: "attendance", widget: "text" }
+          - { label: "Player Development Note", name: "development", widget: "text" }
+          - { label: "Uniform & Equipment Note", name: "uniform", widget: "text" }
+          - { label: "Liability Note", name: "liability", widget: "text" }

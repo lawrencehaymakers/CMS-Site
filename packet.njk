@@ -1,0 +1,100 @@
+---
+layout: base.njk
+title: Team Packet — Lawrence Haymakers
+permalink: /packet/
+---
+<style>
+  .packet-section { border-bottom: 1px solid var(--rule); padding: 2.5rem 0; }
+  .packet-section:first-child { padding-top: 0; }
+  .packet-section:last-child { border-bottom: none; }
+  .packet-section h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.35rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--green-dark); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.6rem; }
+  .packet-section h3 .ps-icon { font-size: 1.1rem; }
+  .packet-section p, .packet-section li { font-size: 0.93rem; color: var(--muted); line-height: 1.7; }
+  .packet-section ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.75rem; }
+  .packet-section li { padding-left: 1.25rem; position: relative; }
+  .packet-section li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
+  .contact-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+  .contact-table td { padding: 0.65rem 0.75rem; font-size: 0.88rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .contact-table tr:last-child td { border-bottom: none; }
+  .contact-table td:first-child { font-weight: 600; color: var(--ink); white-space: nowrap; width: 40%; }
+  .contact-table td:last-child { color: var(--muted); }
+  .contact-table a { color: var(--green); text-decoration: none; }
+  .contact-table a:hover { text-decoration: underline; }
+  .highlight-box { background: #e8f4e8; border-left: 4px solid var(--green); padding: 1rem 1.25rem; margin-top: 1rem; font-size: 0.88rem; color: var(--green-dark); line-height: 1.6; }
+  .liability-box { background: #fff8e0; border-left: 4px solid var(--yellow-dim); padding: 1rem 1.25rem; margin-top: 0.75rem; font-size: 0.85rem; color: #5a4a00; line-height: 1.65; }
+</style>
+
+<section class="hero" style="padding-bottom:3.5rem;">
+  <div class="hero-eyebrow">Lawrence Haymakers Baseball</div>
+  <h1>2026 Team <em>Packet</em></h1>
+  <p class="hero-sub">Everything families need to know about expectations, communication, and how we operate.</p>
+</section>
+
+<div class="section-wrap narrow">
+  <div class="packet-section">
+    <h3><span class="ps-icon">📅</span> Season Structure</h3>
+    <p>{{ packet.season_structure }}</p>
+  </div>
+
+  <div class="packet-section">
+    <h3><span class="ps-icon">📲</span> Communication</h3>
+    <p>{{ packet.communication_note }}</p>
+    <table class="contact-table" style="margin-top:1.25rem;">
+      <tr><td>Head Coach &amp; Manager</td><td>Ricky Lockner<br><a href="mailto:Coach.Rick@LawrenceHaymakers.com">Coach.Rick@LawrenceHaymakers.com</a></td></tr>
+      <tr><td>Assistant Coach</td><td>Brent Boeken<br><a href="mailto:Coach.Brent@LawrenceHaymakers.com">Coach.Brent@LawrenceHaymakers.com</a></td></tr>
+      <tr><td>Assistant Coach</td><td>Ashton Watkins<br><a href="mailto:Coach.Ashton@LawrenceHaymakers.com">Coach.Ashton@LawrenceHaymakers.com</a></td></tr>
+      <tr><td>Assistant Coach</td><td>Myron Liu<br><a href="mailto:Coach.Myron@LawrenceHaymakers.com">Coach.Myron@LawrenceHaymakers.com</a></td></tr>
+      <tr><td>General / Team</td><td><a href="mailto:Staff@LawrenceHaymakers.com">Staff@LawrenceHaymakers.com</a></td></tr>
+    </table>
+  </div>
+
+  <div class="packet-section">
+    <h3><span class="ps-icon">✅</span> Attendance &amp; Availability</h3>
+    <p>{{ packet.attendance }}</p>
+    <ul>
+      <li>A minimum of <strong>24 hours' notice</strong> is required for any missed practice or game, except in cases of illness or emergency.</li>
+      <li>Known conflicts must be communicated as soon as possible.</li>
+      <li>Absences must be reported in the <strong>GameChanger app</strong> AND emailed to <a href="mailto:Staff@LawrenceHaymakers.com" style="color:var(--green);">Staff@LawrenceHaymakers.com</a>.</li>
+      <li>Failure to communicate availability may affect playing time.</li>
+    </ul>
+  </div>
+
+  <div class="packet-section">
+    <h3><span class="ps-icon">⚾</span> Player Expectations</h3>
+    <ul>
+      <li>Give consistent effort at practices and games.</li>
+      <li>Be coachable and willing to learn.</li>
+      <li>Show respect to teammates, coaches, opponents, and officials.</li>
+      <li>Support teammates and put the team first.</li>
+    </ul>
+  </div>
+
+  <div class="packet-section">
+    <h3><span class="ps-icon">🤝</span> Parent Expectations &amp; Dugout Conduct</h3>
+    <p>Parent conduct is non-negotiable. There is <strong>zero tolerance</strong> for negative reinforcement or disrespectful behavior during games or practices.</p>
+    <ul>
+      <li>Encourage players positively — all players, not just your own.</li>
+      <li>Allow coaches to coach. Do not coach from the stands.</li>
+      <li>Address concerns privately with coaching staff.</li>
+      <li><strong>Parents are not permitted in the dugout.</strong></li>
+    </ul>
+    <div class="highlight-box">
+      <strong>Parent support is valued.</strong> We need help with dugout setup, scorekeeping, and stat tracking through GameChanger. Families interested in helping secure sponsorships are encouraged to reach out.
+    </div>
+  </div>
+
+  <div class="packet-section">
+    <h3><span class="ps-icon">📈</span> Player Development &amp; Positions</h3>
+    <p>{{ packet.development }}</p>
+  </div>
+
+  <div class="packet-section">
+    <h3><span class="ps-icon">👕</span> Uniform &amp; Equipment</h3>
+    <p>{{ packet.uniform }}</p>
+  </div>
+
+  <div class="packet-section">
+    <h3><span class="ps-icon">⚠️</span> Injury &amp; Liability</h3>
+    <div class="liability-box">{{ packet.liability }}</div>
+  </div>
+</div>

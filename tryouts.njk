@@ -1,0 +1,107 @@
+---
+layout: base.njk
+title: Tryouts — Lawrence Haymakers
+permalink: /tryouts/
+---
+<style>
+  .expect-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+  .bring-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; margin-top: 1.5rem; }
+  .bring-list li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.93rem; color: rgba(255,255,255,0.85); line-height: 1.5; }
+  .bring-list li::before { content: ''; display: inline-block; width: 8px; height: 8px; min-width: 8px; background: var(--yellow); border-radius: 50%; margin-top: 0.45em; }
+  .date-callout { background: white; border: 2px solid var(--rule); border-left: 5px solid var(--yellow); padding: 1.5rem 2rem; display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem; }
+  .date-callout .dc-icon { font-size: 2.2rem; flex-shrink: 0; }
+  .date-callout h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.35rem; text-transform: uppercase; color: var(--green-dark); margin-bottom: 0.25rem; }
+  .date-callout p { font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
+  .philosophy-callout { background: var(--green); padding: 2.5rem 2rem; position: relative; overflow: hidden; }
+  .philosophy-callout::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(-55deg, transparent, transparent 20px, rgba(255,255,255,0.02) 20px, rgba(255,255,255,0.02) 21px); pointer-events: none; }
+  .philosophy-callout p { color: rgba(255,255,255,0.82); font-size: 1rem; line-height: 1.7; max-width: 640px; }
+  .philosophy-callout h2 { color: white; }
+  .philosophy-callout .section-label { color: var(--yellow); }
+  .philosophy-callout .divider { background: var(--yellow); }
+  .form-wrapper { background: white; border: 1px solid var(--rule); }
+  .form-placeholder { padding: 3rem 2rem; text-align: center; background: #f5f3ec; border: 2px dashed var(--rule); }
+  .form-placeholder strong { font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--green-dark); }
+  .form-placeholder p { color: var(--muted); font-size: 0.88rem; margin-top: 0.4rem; }
+  .google-form-embed { width: 100%; height: 860px; border: none; display: block; }
+  .pc-callout { background: white; border: 1px solid var(--rule); border-left: 4px solid var(--green); padding: 1.25rem 1.5rem; margin-top: 1.5rem; font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+  .pc-callout strong { color: var(--green-dark); }
+  @media (max-width: 600px) { .date-callout { flex-direction: column; } }
+</style>
+
+<section class="hero">
+  <div class="hero-eyebrow">Lawrence Haymakers Baseball</div>
+  <h1>10U <em>Tryouts</em></h1>
+  <p class="hero-sub">{{ tryouts.hero_sub }}</p>
+  <div class="hero-badge">Date Announced Soon — Register Below</div>
+</section>
+
+<div class="philosophy-callout">
+  <div class="section-wrap narrow" style="padding: 0 2rem;">
+    <div class="section-label">Who We're Looking For</div>
+    <h2 class="section-title" style="color:white; margin-bottom:0.75rem;">More Than Talent</h2>
+    <div class="divider"></div>
+    <p>{{ tryouts.philosophy }}</p>
+  </div>
+</div>
+
+<div class="section-wrap">
+  <div class="section-label">At Tryouts</div>
+  <h2 class="section-title">What to Expect</h2>
+  <div class="divider"></div>
+  <p class="section-intro">Tryouts are focused on each player's ability to learn and compete. Coaches will evaluate all players across four areas.</p>
+
+  <div class="expect-grid">
+    <div class="card"><div class="card-icon">⚾</div><h3>Hitting</h3><p>Tee work and soft toss to evaluate swing mechanics and hand-eye coordination.</p></div>
+    <div class="card"><div class="card-icon">🧤</div><h3>Fielding</h3><p>Ground balls and fly balls to see footwork, range, and glove skills.</p></div>
+    <div class="card"><div class="card-icon">💪</div><h3>Throwing</h3><p>Arm strength and accuracy evaluated through partner throws and long toss.</p></div>
+    <div class="card"><div class="card-icon">🏃</div><h3>Baserunning</h3><p>Speed and instincts evaluated with a 60-foot dash and base-to-base runs.</p></div>
+  </div>
+
+  <div class="pc-callout">
+    <strong>Pitcher &amp; Catcher Experience Welcome.</strong> If your player has experience pitching or catching, please note it on the registration form. It's not required — but we're actively developing these positions and would love to know.
+  </div>
+</div>
+
+<div class="dark-band">
+  <div class="section-wrap on-dark">
+    <div class="section-label">Come Prepared</div>
+    <h2 class="section-title">What to Bring</h2>
+    <div class="divider"></div>
+    <ul class="bring-list">
+      {% for entry in tryouts.bring_items %}
+      <li>{{ entry.item }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<div id="register" style="background: var(--cream); border-top: 1px solid var(--rule);">
+  <div class="section-wrap">
+    <div class="section-label">Sign Up</div>
+    <h2 class="section-title">Register for Tryouts</h2>
+    <div class="divider"></div>
+
+    <div class="date-callout">
+      <div class="dc-icon">📅</div>
+      <div>
+        <h3>{{ tryouts.date_status }}</h3>
+        <p>{{ tryouts.date_detail }}</p>
+      </div>
+    </div>
+
+    <div class="form-wrapper">
+      {% if tryouts.form_url %}
+      <iframe src="{{ tryouts.form_url }}" class="google-form-embed" title="Haymakers 10U Tryout Registration"></iframe>
+      {% else %}
+      <div class="form-placeholder">
+        <strong>Registration Form Coming Soon</strong>
+        <p>The signup form will appear here once it's ready. Check back shortly.</p>
+      </div>
+      {% endif %}
+    </div>
+
+    <p style="font-size:0.8rem; color:var(--muted); margin-top:1rem; text-align:center;">
+      Questions? Email <a href="mailto:Staff@LawrenceHaymakers.com" style="color:var(--green);">Staff@LawrenceHaymakers.com</a>
+    </p>
+  </div>
+</div>

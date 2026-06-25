@@ -1,0 +1,81 @@
+---
+layout: base.njk
+title: Our Philosophy — Lawrence Haymakers
+permalink: /philosophy/
+---
+<style>
+  .phil-list { display: flex; flex-direction: column; gap: 0; margin-top: 2.5rem; }
+  .phil-item { display: grid; grid-template-columns: 56px 1fr; gap: 0 1.75rem; padding: 2rem 0; border-bottom: 1px solid var(--rule); align-items: start; }
+  .phil-item:first-child { border-top: 1px solid var(--rule); }
+  .phil-marker { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 2.2rem; color: var(--yellow); line-height: 1; padding-top: 0.1rem; }
+  .phil-item h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.35rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--green-dark); margin-bottom: 0.4rem; }
+  .phil-item p { font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
+  .code-section { background: var(--green-dark); }
+  .code-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+  .code-card { border: 1px solid rgba(255,255,255,0.12); border-top: 3px solid var(--yellow); padding: 1.5rem; }
+  .code-card h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--yellow); margin-bottom: 1rem; }
+  .code-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .code-card li { font-size: 0.88rem; color: rgba(255,255,255,0.75); padding-left: 1rem; position: relative; line-height: 1.5; }
+  .code-card li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 5px; height: 5px; background: var(--yellow); border-radius: 50%; }
+</style>
+
+<section class="hero" style="padding-bottom: 3.5rem;">
+  <div class="hero-eyebrow">Lawrence Haymakers Baseball</div>
+  <h1>How We <em>Coach</em></h1>
+  <p class="hero-sub">{{ philosophy.intro }}</p>
+</section>
+
+<div class="section-wrap">
+  <div class="section-label">Our Approach</div>
+  <h2 class="section-title">What We Believe</h2>
+  <div class="divider"></div>
+
+  <div class="phil-list">
+    {% for item in philosophy.items %}
+    <div class="phil-item">
+      <div class="phil-marker">{{ "0" }}{{ loop.index }}</div>
+      <div>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.body }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="code-section">
+  <div class="section-wrap on-dark">
+    <div class="section-label">Standards</div>
+    <h2 class="section-title">Code of Conduct</h2>
+    <div class="divider"></div>
+    <div class="code-grid">
+      <div class="code-card">
+        <h3>Players</h3>
+        <ul>
+          <li>Show respect at all times</li>
+          <li>Play hard and maintain a positive attitude</li>
+          <li>Accept coaching with effort and respect</li>
+          <li>Put the team first</li>
+        </ul>
+      </div>
+      <div class="code-card">
+        <h3>Parents & Spectators</h3>
+        <ul>
+          <li>Encourage all players positively</li>
+          <li>Refrain from coaching from the stands</li>
+          <li>Address concerns privately with staff</li>
+          <li>Zero tolerance for negative reinforcement</li>
+        </ul>
+      </div>
+      <div class="code-card">
+        <h3>Coaches & Staff</h3>
+        <ul>
+          <li>Teach with integrity and consistency</li>
+          <li>Promote safety and sportsmanship</li>
+          <li>Communicate openly with families</li>
+          <li>Develop the whole player</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+{
+  "intro": "Our coaching staff and roster for the 2026 season.",
+  "roster_note": "Roster will be posted here once finalized. Check back after tryouts.",
+  "coaches": [
+    { "name": "Ricky Lockner", "initials": "RL", "role": "Head Coach & Team Manager", "email": "Coach.Rick@LawrenceHaymakers.com", "type": "head" },
+    { "name": "Brent Boeken", "initials": "BB", "role": "Assistant Coach", "email": "Coach.Brent@LawrenceHaymakers.com", "type": "asst" },
+    { "name": "Ashton Watkins", "initials": "AW", "role": "Assistant Coach", "email": "Coach.Ashton@LawrenceHaymakers.com", "type": "asst" },
+    { "name": "Myron Liu", "initials": "ML", "role": "Assistant Coach", "email": "Coach.Myron@LawrenceHaymakers.com", "type": "asst" }
+  ],
+  "players": []
+}

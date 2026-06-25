@@ -1,0 +1,12 @@
+{
+  "name": "lawrence-haymakers",
+  "version": "1.0.0",
+  "description": "Lawrence Haymakers 10U Baseball team site",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

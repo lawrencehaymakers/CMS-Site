@@ -1,0 +1,12 @@
+---
+layout: base.njk
+---
+<section class="hero" style="padding-bottom:3rem;">
+  <div class="hero-eyebrow">From the Dugout</div>
+  <h1 style="font-size:clamp(2rem,6vw,3.5rem);">{{ title }}</h1>
+</section>
+<div class="section-wrap narrow">
+  <p style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.5rem;">{{ date | dateDisplay }} · {{ tag }}</p>
+  <div style="font-size:1rem;line-height:1.7;color:var(--ink);">{{ content | safe }}</div>
+  <p style="margin-top:2.5rem;"><a href="/updates/" style="color:var(--green);font-weight:600;">← Back to all updates</a></p>
+</div>

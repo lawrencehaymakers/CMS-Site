@@ -1,0 +1,91 @@
+---
+layout: base.njk
+title: Schedule — Lawrence Haymakers
+permalink: /schedule/
+---
+<style>
+  .cadence-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+  .cadence-card { background: white; border: 1px solid var(--rule); border-top: 3px solid var(--green); padding: 1.5rem; }
+  .cadence-card.tournament { border-top-color: var(--yellow); }
+  .cadence-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .cadence-card:not(.tournament) .cadence-label { color: var(--green); }
+  .cadence-card.tournament .cadence-label { color: var(--yellow-dim); }
+  .cadence-card h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink); margin-bottom: 0.35rem; }
+  .cadence-card p { font-size: 0.87rem; color: var(--muted); line-height: 1.55; }
+  .empty-state { margin-top: 3rem; text-align: center; padding: 3.5rem 2rem; border: 2px dashed var(--rule); background: white; }
+  .empty-state .empty-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .empty-state h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.4rem; text-transform: uppercase; color: var(--green-dark); margin-bottom: 0.5rem; }
+  .empty-state p { font-size: 0.9rem; color: var(--muted); max-width: 380px; margin: 0 auto; }
+  .gamechanger-note { margin-top: 2rem; background: var(--green-dark); color: white; padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1rem; border-radius: 2px; }
+  .gamechanger-note .gc-icon { font-size: 1.6rem; flex-shrink: 0; }
+  .gamechanger-note p { font-size: 0.88rem; color: rgba(255,255,255,0.78); line-height: 1.55; }
+  .gamechanger-note strong { color: var(--yellow); }
+  .event-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+  .event-table th { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); text-align: left; padding: 0.6rem 1rem; border-bottom: 2px solid var(--rule); background: white; }
+  .event-table td { padding: 0.85rem 1rem; font-size: 0.9rem; border-bottom: 1px solid var(--rule); background: white; vertical-align: middle; }
+  .event-table tr:hover td { background: var(--cream); }
+  .tag { display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 2px; }
+  .tag-game { background: #e8f4e8; color: var(--green-dark); }
+  .tag-practice { background: #fff8e0; color: var(--yellow-dim); }
+  .tag-tournament { background: #f0e8ff; color: #5a2d91; }
+</style>
+
+<section class="hero" style="padding-bottom:3.5rem;">
+  <div class="hero-eyebrow">Lawrence Haymakers Baseball</div>
+  <h1>Games &amp; <em>Practices</em></h1>
+  <p class="hero-sub">{{ schedule.intro }}</p>
+</section>
+
+<div class="section-wrap">
+  <div class="section-label">Season Structure</div>
+  <h2 class="section-title">How the Season Works</h2>
+  <div class="divider"></div>
+
+  <div class="cadence-grid">
+    <div class="cadence-card">
+      <div class="cadence-label">Practice</div>
+      <h3>Twice a Week</h3>
+      <p>Monday evenings and one session on the weekend. Location posted in GameChanger.</p>
+    </div>
+    <div class="cadence-card">
+      <div class="cadence-label">Games</div>
+      <h3>Tuesdays &amp; Thursdays</h3>
+      <p>Typically two games per week during the season. Times and locations vary.</p>
+    </div>
+    <div class="cadence-card tournament">
+      <div class="cadence-label">Tournaments</div>
+      <h3>KC Area</h3>
+      <p>We plan to participate in local tournaments and select events within the Kansas City area.</p>
+    </div>
+  </div>
+
+  <div class="gamechanger-note">
+    <div class="gc-icon">📲</div>
+    <p><strong>GameChanger is our primary schedule tool.</strong> All practice and game times, locations, and last-minute updates are posted there. Download the app and join the team to stay current.</p>
+  </div>
+
+  {% if schedule.events and schedule.events.length > 0 %}
+  <table class="event-table">
+    <thead>
+      <tr><th>Date</th><th>Type</th><th>Details</th><th>Location</th><th>Time</th></tr>
+    </thead>
+    <tbody>
+      {% for event in schedule.events %}
+      <tr>
+        <td>{{ event.date }}</td>
+        <td><span class="tag tag-{{ event.type | lower }}">{{ event.type }}</span></td>
+        <td>{{ event.details }}</td>
+        <td>{{ event.location }}</td>
+        <td>{{ event.time }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div class="empty-state">
+    <div class="empty-icon">📅</div>
+    <h3>Season Schedule Coming Soon</h3>
+    <p>{{ schedule.empty_msg }}</p>
+  </div>
+  {% endif %}
+</div>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ title }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Netlify Identity -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-brand" href="/">Lawrence Haymakers</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="/" {% if page.url == "/" %}class="active"{% endif %}>Home</a>
+      <a href="/philosophy/" {% if page.url == "/philosophy/" %}class="active"{% endif %}>Philosophy</a>
+      <a href="/team/" {% if page.url == "/team/" %}class="active"{% endif %}>Team</a>
+      <a href="/schedule/" {% if page.url == "/schedule/" %}class="active"{% endif %}>Schedule</a>
+      <a href="/updates/" {% if page.url == "/updates/" %}class="active"{% endif %}>Updates</a>
+      <a href="/packet/" {% if page.url == "/packet/" %}class="active"{% endif %}>Team Packet</a>
+      <a href="/tryouts/" class="nav-cta">Tryouts</a>
+    </div>
+  </nav>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer>
+    <strong>Lawrence Haymakers Baseball</strong> &nbsp;·&nbsp; 10U &nbsp;·&nbsp; Lawrence, KS<br>
+    General inquiries: <a href="mailto:Staff@LawrenceHaymakers.com">Staff@LawrenceHaymakers.com</a>
+    <div class="footer-emails">
+      <a href="mailto:Coach.Rick@LawrenceHaymakers.com">Coach.Rick@LawrenceHaymakers.com</a>
+      <a href="mailto:Coach.Brent@LawrenceHaymakers.com">Coach.Brent@LawrenceHaymakers.com</a>
+      <a href="mailto:Coach.Ashton@LawrenceHaymakers.com">Coach.Ashton@LawrenceHaymakers.com</a>
+      <a href="mailto:Coach.Myron@LawrenceHaymakers.com">Coach.Myron@LawrenceHaymakers.com</a>
+    </div>
+    <div style="margin-top:1rem;font-size:0.72rem;">© 2026 Lawrence Haymakers Baseball</div>
+  </footer>
+
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

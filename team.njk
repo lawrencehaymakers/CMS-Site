@@ -1,0 +1,67 @@
+---
+layout: base.njk
+title: Team — Lawrence Haymakers
+permalink: /team/
+---
+<style>
+  .coaches-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+  .coach-card { background: var(--white); border: 1px solid var(--rule); padding: 1.75rem 1.5rem; text-align: center; }
+  .coach-card.head { border-top: 4px solid var(--yellow); }
+  .coach-card.asst { border-top: 4px solid var(--green); }
+  .coach-avatar { width: 64px; height: 64px; border-radius: 50%; background: var(--green); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.4rem; color: var(--yellow); }
+  .coach-card h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.15rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink); margin-bottom: 0.25rem; }
+  .coach-role { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .coach-email { display: block; margin-top: 0.75rem; font-size: 0.78rem; color: var(--green); text-decoration: none; word-break: break-all; }
+  .coach-email:hover { text-decoration: underline; }
+  .roster-section { background: var(--cream); border-top: 1px solid var(--rule); }
+  .roster-intro { color: var(--muted); font-size: 0.9rem; font-style: italic; margin-top: 1.5rem; padding: 1.5rem; border: 1px dashed var(--rule); background: white; text-align: center; }
+  .roster-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+  .player-card { background: white; border: 1px solid var(--rule); padding: 1.25rem 1rem; text-align: center; }
+  .player-number { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 2rem; color: var(--green); line-height: 1; margin-bottom: 0.5rem; }
+  .player-card h4 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink); margin-bottom: 0.2rem; }
+  .player-pos { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+</style>
+
+<section class="hero" style="padding-bottom:3.5rem;">
+  <div class="hero-eyebrow">Lawrence Haymakers Baseball</div>
+  <h1>The <em>Haymakers</em></h1>
+  <p class="hero-sub">{{ team.intro }}</p>
+</section>
+
+<div class="section-wrap">
+  <div class="section-label">Coaching Staff</div>
+  <h2 class="section-title">Meet the Coaches</h2>
+  <div class="divider"></div>
+
+  <div class="coaches-grid">
+    {% for coach in team.coaches %}
+    <div class="coach-card {{ coach.type }}">
+      <div class="coach-avatar">{{ coach.initials }}</div>
+      <h3>{{ coach.name }}</h3>
+      <div class="coach-role">{{ coach.role }}</div>
+      <a href="mailto:{{ coach.email }}" class="coach-email">{{ coach.email }}</a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="roster-section">
+  <div class="section-wrap">
+    <div class="section-label">2026 Season</div>
+    <h2 class="section-title">Roster</h2>
+    <div class="divider"></div>
+    {% if team.players and team.players.length > 0 %}
+    <div class="roster-grid">
+      {% for player in team.players %}
+      <div class="player-card">
+        <div class="player-number">#{{ player.number }}</div>
+        <h4>{{ player.name }}</h4>
+        <div class="player-pos">{{ player.position }}</div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="roster-intro">{{ team.roster_note }}</div>
+    {% endif %}
+  </div>
+</div>
