@@ -1,5 +1,13 @@
 {
   "intro": "Schedule will be posted here ahead of the upcoming season. Check back for updates.",
   "empty_msg": "Specific game and practice dates will be posted here once the 2027 season schedule is set.",
-  "events": []
+  "events": [
+    {
+      "date": "6/27/2026",
+      "details": "Haymaker End of Season Banquet",
+      "type": "Practice",
+      "location": "Shawnee",
+      "time": "5:30 PM"
+    }
+  ]
 }
