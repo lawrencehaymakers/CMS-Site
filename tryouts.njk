@@ -27,9 +27,18 @@ permalink: /tryouts/
   .form-cta p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
   .pc-callout { background: white; border: 1px solid var(--rule); border-left: 4px solid var(--green); padding: 1.25rem 1.5rem; margin-top: 1.5rem; font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
   .pc-callout strong { color: var(--green-dark); }
+  .cost-feature { display: grid; grid-template-columns: 240px 1fr; gap: 2rem; margin-top: 2rem; align-items: center; }
+  .cost-price-box { background: var(--green); border-top: 4px solid var(--yellow); padding: 2.5rem 1.5rem; text-align: center; border-radius: 4px; }
+  .cost-amount { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 4rem; line-height: 1; color: var(--yellow); }
+  .cost-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: white; margin-top: 0.5rem; }
+  .cost-copy p { font-size: 1rem; line-height: 1.7; }
+  .cost-detail { color: var(--muted); margin-bottom: 1rem; }
+  .cost-value { color: var(--green-dark); font-weight: 600; border-left: 4px solid var(--yellow); padding-left: 1rem; }
   .hero-badge-link { text-decoration: none; cursor: pointer; transition: background 0.15s; }
   .hero-badge-link:hover { background: #ffd630; }
-  @media (max-width: 600px) { .date-callout { flex-direction: column; } }
+  .season-note { background: white; border: 1px solid var(--rule); border-left: 4px solid var(--green); padding: 1rem 1.25rem; margin-bottom: 2.5rem; font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+  .season-note strong { color: var(--green-dark); }
+  @media (max-width: 600px) { .date-callout { flex-direction: column; } .cost-feature { grid-template-columns: 1fr; } }
 </style>
 
 <section class="hero">
@@ -37,9 +46,9 @@ permalink: /tryouts/
   <h1>10U <em>Tryouts</em></h1>
   <p class="hero-sub">{{ tryouts.hero_sub }}</p>
   {% if tryouts.form_url %}
-  <a href="{{ tryouts.form_url }}" target="_blank" rel="noopener" class="hero-badge hero-badge-link">Tryouts June 13 — Sign Up Now</a>
+  <a href="{{ tryouts.form_url }}" target="_blank" rel="noopener" class="hero-badge hero-badge-link">Tryouts July 13 — Sign Up Now</a>
   {% else %}
-  <div class="hero-badge">Tryouts June 13 — Registration Coming Soon</div>
+  <div class="hero-badge">Tryouts July 13 — Registration Coming Soon</div>
   {% endif %}
 </section>
 
@@ -49,6 +58,23 @@ permalink: /tryouts/
     <h2 class="section-title" style="color:white; margin-bottom:0.75rem;">{{ tryouts.philosophy_heading }}</h2>
     <div class="divider"></div>
     <p>{{ tryouts.philosophy }}</p>
+  </div>
+</div>
+
+<div class="section-wrap">
+  <div class="section-label">What It Costs</div>
+  <h2 class="section-title">Real Development, Real Value</h2>
+  <div class="divider"></div>
+
+  <div class="cost-feature">
+    <div class="cost-price-box">
+      <div class="cost-amount">{{ tryouts.cost_amount }}</div>
+      <div class="cost-label">{{ tryouts.cost_label }}</div>
+    </div>
+    <div class="cost-copy">
+      <p class="cost-detail">{{ tryouts.cost_detail }}</p>
+      <p class="cost-value">{{ tryouts.cost_value }}</p>
+    </div>
   </div>
 </div>
 
@@ -96,6 +122,12 @@ permalink: /tryouts/
         <p>{{ tryouts.date_detail }}</p>
       </div>
     </div>
+
+    {% if tryouts.season_note %}
+    <div class="season-note">
+      <strong>Fall Season Note:</strong> {{ tryouts.season_note }}
+    </div>
+    {% endif %}
 
     <div class="form-wrapper">
       {% if tryouts.form_url %}

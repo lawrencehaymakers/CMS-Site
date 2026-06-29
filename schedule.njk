@@ -20,6 +20,8 @@ permalink: /schedule/
   .gamechanger-note .gc-icon { font-size: 1.6rem; flex-shrink: 0; }
   .gamechanger-note p { font-size: 0.88rem; color: rgba(255,255,255,0.78); line-height: 1.55; }
   .gamechanger-note strong { color: var(--yellow); }
+  .season-note { margin-top: 2rem; background: white; border: 1px solid var(--rule); border-left: 4px solid var(--green); padding: 1rem 1.25rem; font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+  .season-note strong { color: var(--green-dark); }
   .event-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
   .event-table th { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); text-align: left; padding: 0.6rem 1rem; border-bottom: 2px solid var(--rule); background: white; }
   .event-table td { padding: 0.85rem 1rem; font-size: 0.9rem; border-bottom: 1px solid var(--rule); background: white; vertical-align: middle; }
@@ -54,8 +56,8 @@ permalink: /schedule/
     </div>
     <div class="cadence-card tournament">
       <div class="cadence-label">Tournaments</div>
-      <h3>KC Area</h3>
-      <p>We plan to participate in local tournaments and select events within the Kansas City area.</p>
+      <h3>TBD</h3>
+      <p>Participation in local Kansas City area tournaments is still to be determined for this season.</p>
     </div>
   </div>
 
@@ -63,6 +65,12 @@ permalink: /schedule/
     <div class="gc-icon">📲</div>
     <p><strong>GameChanger is our primary schedule tool.</strong> All practice and game times, locations, and last-minute updates are posted there. Download the app and join the team to stay current.</p>
   </div>
+
+  {% if schedule.season_note %}
+  <div class="season-note">
+    <strong>Fall Season Note:</strong> {{ schedule.season_note }}
+  </div>
+  {% endif %}
 
   {% if schedule.events and schedule.events.length > 0 %}
   <table class="event-table">

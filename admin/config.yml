@@ -33,8 +33,13 @@ collections:
           - { label: "Hero Subheading", name: "hero_sub", widget: "text" }
           - { label: "Date & Location Status", name: "date_status", widget: "string" }
           - { label: "Date Detail Text", name: "date_detail", widget: "text" }
+          - { label: "Fall Season Note", name: "season_note", widget: "text", required: false, hint: "Note about DCABA / fall season status. Leave blank to hide." }
           - { label: "'Who We're Looking For' Heading", name: "philosophy_heading", widget: "string" }
           - { label: "'Who We're Looking For' Paragraph", name: "philosophy", widget: "text" }
+          - { label: "Cost Amount", name: "cost_amount", widget: "string", hint: "e.g. $300" }
+          - { label: "Cost Label", name: "cost_label", widget: "string", hint: "e.g. Uniforms + Registration" }
+          - { label: "Cost Detail", name: "cost_detail", widget: "text", hint: "Explains what the cost covers." }
+          - { label: "Cost Value Statement", name: "cost_value", widget: "text", hint: "The comparison to other programs / value message." }
           - { label: "Google Form Link", name: "form_url", widget: "string", required: false, hint: "Paste your Google Form's share link (the forms.gle/... or docs.google.com/forms/... URL from the Send → link tab). Leave blank to show a 'coming soon' message." }
           - label: "What to Bring List"
             name: "bring_items"
@@ -67,6 +72,7 @@ collections:
         fields:
           - { label: "Page Intro", name: "intro", widget: "text" }
           - { label: "Empty State Message", name: "empty_msg", widget: "string", hint: "Shown when there are no events listed." }
+          - { label: "Fall Season Note", name: "season_note", widget: "text", required: false, hint: "Note about DCABA / fall season status. Leave blank to hide." }
           - label: "Events"
             name: "events"
             widget: "list"

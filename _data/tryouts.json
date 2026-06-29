@@ -1,6 +1,6 @@
 {
   "hero_sub": "We're looking for players who love the game, compete hard, and want to grow — on and off the field.",
-  "date_status": "Tryouts: Friday, June 13",
+  "date_status": "Tryouts: Monday, July 13",
   "date_detail": "Tryouts will be held at the Lawrence Youth Sports Complex (4911 W 27th St, Lawrence, KS 66047). Time and field assignment to be announced — register below and we'll send the details directly.",
   "philosophy_heading": "Built to Grow",
   "philosophy": "We're looking for players who bring effort, energy, and a willingness to learn. Talent matters, but what sets a Haymaker apart is coachability, a love for the game, and the drive to get better every time they step on the field. If your player wants to compete, improve, and be part of a team that picks each other up, they'll fit right in.",
@@ -27,5 +27,10 @@
     {
       "item": "Positive attitude"
     }
-  ]
+  ],
+  "season_note": "Fall season participation in DCABA is still to be determined based on other teams' registration. Either way, we'll continue to hold competitive practices and scrimmages.",
+  "cost_amount": "$300",
+  "cost_label": "Uniforms + Registration",
+  "cost_detail": "For $300, your player gets their uniform and registration for the Spring or Fall season. Returning players pay less each year if they keep their uniform. Tournaments would be an optional extra we haven't committed to yet.",
+  "cost_value": "We believe in keeping youth baseball accessible. Where other programs charge $1,000 and up, we want to provide access to coaching, fundamentals, and development that rec ball just can't match without breaking the bank. Growth your kid can feel, at a price that makes sense."
 }
