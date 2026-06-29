@@ -51,7 +51,16 @@ nav {
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
 }
+.nav-logo {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+.nav-wordmark { display: inline; }
 .nav-links {
   display: flex;
   gap: 0.25rem;
@@ -121,7 +130,7 @@ nav {
 }
 .hero-eyebrow {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -262,13 +271,42 @@ footer {
 footer strong { color: var(--yellow); }
 footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
 footer a:hover { color: var(--yellow); }
-.footer-emails {
+.footer-sponsors {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.footer-sponsors-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 1.25rem;
+}
+.footer-sponsors-logos {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.5rem 1.5rem;
-  margin-top: 0.75rem;
-  font-size: 0.75rem;
+  align-items: center;
+  gap: 1rem;
+}
+.footer-sponsors-logos .fs-tile {
+  background: white;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-sponsors-logos .fs-tile.dark { background: var(--green-dark); }
+.footer-sponsors-logos img {
+  max-height: 36px;
+  max-width: 110px;
+  object-fit: contain;
 }
 
 /* ── MOBILE ── */

@@ -1,0 +1,9 @@
+{
+  "intro": "The Lawrence Haymakers are proud to be supported by these local businesses and families. Their generosity helps keep our players on the field.",
+  "list": [
+    { "name": "Dunco Heating, Cooling, Plumbing & Electric", "logo": "/images/sponsors/dunco.png", "url": "https://duncohc.com/", "dark_bg": false },
+    { "name": "Northstar Audiology", "logo": "/images/sponsors/northstar-audiology.png", "url": "https://www.northstaraudiology.com/", "dark_bg": false },
+    { "name": "American Dream Realty", "logo": "/images/sponsors/american-dream-realty.png", "url": "https://www.hollyshomeguide.com/", "dark_bg": false },
+    { "name": "Dick's Sporting Goods", "logo": "/images/sponsors/dicks-sporting-goods.png", "url": "https://www.dickssportinggoods.com/", "dark_bg": false }
+  ]
+}

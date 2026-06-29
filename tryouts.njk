@@ -22,9 +22,13 @@ permalink: /tryouts/
   .form-placeholder { padding: 3rem 2rem; text-align: center; background: #f5f3ec; border: 2px dashed var(--rule); }
   .form-placeholder strong { font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--green-dark); }
   .form-placeholder p { color: var(--muted); font-size: 0.88rem; margin-top: 0.4rem; }
-  .google-form-embed { width: 100%; height: 860px; border: none; display: block; }
+  .form-cta { padding: 3rem 2rem; text-align: center; }
+  .form-cta strong { display: block; font-family: 'Barlow Condensed', sans-serif; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--green-dark); margin-bottom: 0.5rem; }
+  .form-cta p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
   .pc-callout { background: white; border: 1px solid var(--rule); border-left: 4px solid var(--green); padding: 1.25rem 1.5rem; margin-top: 1.5rem; font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
   .pc-callout strong { color: var(--green-dark); }
+  .hero-badge-link { text-decoration: none; cursor: pointer; transition: background 0.15s; }
+  .hero-badge-link:hover { background: #ffd630; }
   @media (max-width: 600px) { .date-callout { flex-direction: column; } }
 </style>
 
@@ -32,13 +36,17 @@ permalink: /tryouts/
   <div class="hero-eyebrow">Lawrence Haymakers Baseball</div>
   <h1>10U <em>Tryouts</em></h1>
   <p class="hero-sub">{{ tryouts.hero_sub }}</p>
-  <div class="hero-badge">Date Announced Soon — Register Below</div>
+  {% if tryouts.form_url %}
+  <a href="{{ tryouts.form_url }}" target="_blank" rel="noopener" class="hero-badge hero-badge-link">Tryouts June 13 — Sign Up Now</a>
+  {% else %}
+  <div class="hero-badge">Tryouts June 13 — Registration Coming Soon</div>
+  {% endif %}
 </section>
 
 <div class="philosophy-callout">
   <div class="section-wrap narrow" style="padding: 0 2rem;">
     <div class="section-label">Who We're Looking For</div>
-    <h2 class="section-title" style="color:white; margin-bottom:0.75rem;">More Than Talent</h2>
+    <h2 class="section-title" style="color:white; margin-bottom:0.75rem;">{{ tryouts.philosophy_heading }}</h2>
     <div class="divider"></div>
     <p>{{ tryouts.philosophy }}</p>
   </div>
@@ -51,10 +59,10 @@ permalink: /tryouts/
   <p class="section-intro">Tryouts are focused on each player's ability to learn and compete. Coaches will evaluate all players across four areas.</p>
 
   <div class="expect-grid">
-    <div class="card"><div class="card-icon">⚾</div><h3>Hitting</h3><p>Tee work and soft toss to evaluate swing mechanics and hand-eye coordination.</p></div>
+    <div class="card"><div class="card-icon">⚾</div><h3>Hitting</h3><p>Tee work and live pitches to evaluate swing mechanics, timing, and hand-eye coordination.</p></div>
     <div class="card"><div class="card-icon">🧤</div><h3>Fielding</h3><p>Ground balls and fly balls to see footwork, range, and glove skills.</p></div>
     <div class="card"><div class="card-icon">💪</div><h3>Throwing</h3><p>Arm strength and accuracy evaluated through partner throws and long toss.</p></div>
-    <div class="card"><div class="card-icon">🏃</div><h3>Baserunning</h3><p>Speed and instincts evaluated with a 60-foot dash and base-to-base runs.</p></div>
+    <div class="card"><div class="card-icon">🏃</div><h3>Baserunning</h3><p>Straight line speed and instincts evaluated through base-to-base runs.</p></div>
   </div>
 
   <div class="pc-callout">
@@ -91,7 +99,11 @@ permalink: /tryouts/
 
     <div class="form-wrapper">
       {% if tryouts.form_url %}
-      <iframe src="{{ tryouts.form_url }}" class="google-form-embed" title="Haymakers 10U Tryout Registration"></iframe>
+      <div class="form-cta">
+        <strong>Tryout Registration is Open</strong>
+        <p>Click or tap to fill out the Registration Form</p>
+        <a href="{{ tryouts.form_url }}" target="_blank" rel="noopener" class="btn btn-primary">Sign Up for Tryouts</a>
+      </div>
       {% else %}
       <div class="form-placeholder">
         <strong>Registration Form Coming Soon</strong>

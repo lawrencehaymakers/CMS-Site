@@ -4,6 +4,14 @@ title: Lawrence Haymakers Baseball
 permalink: /
 ---
 <style>
+  /* Home hero with team photo background */
+  .hero-home {
+    background:
+      linear-gradient(rgba(28,74,30,0.62), rgba(28,74,30,0.72)),
+      url('/images/team-photo.jpg') center / cover no-repeat,
+      var(--green);
+  }
+  .hero-logo { width: 110px; height: auto; margin: 0 auto 1.25rem; display: block; position: relative; z-index: 1; }
   .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0; }
   .pillar { padding: 2.5rem 2rem; border-right: 1px solid rgba(255,255,255,0.1); text-align: center; }
   .pillar:last-child { border-right: none; }
@@ -19,7 +27,7 @@ permalink: /
   @media (max-width: 680px) { .pillar { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); } .pillar:last-child { border-bottom: none; } }
 </style>
 
-<section class="hero">
+<section class="hero hero-home">
   <div class="hero-eyebrow">Lawrence, Kansas · 10U Baseball</div>
   <h1>{{ home.hero_line1 }}<br><em>{{ home.hero_line2 }}</em><br>{{ home.hero_line3 }}</h1>
   <p class="hero-sub">{{ home.hero_sub }}</p>

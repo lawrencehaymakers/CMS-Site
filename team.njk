@@ -30,7 +30,7 @@ permalink: /team/
 
 <div class="section-wrap">
   <div class="section-label">Coaching Staff</div>
-  <h2 class="section-title">Meet the Coaches</h2>
+  <h2 class="section-title">Meet the Team</h2>
   <div class="divider"></div>
 
   <div class="coaches-grid">
@@ -56,7 +56,7 @@ permalink: /team/
       <div class="player-card">
         <div class="player-number">#{{ player.number }}</div>
         <h4>{{ player.name }}</h4>
-        <div class="player-pos">{{ player.position }}</div>
+        {% if player.position %}<div class="player-pos">{{ player.position }}</div>{% endif %}
       </div>
       {% endfor %}
     </div>

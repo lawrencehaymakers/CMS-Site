@@ -33,8 +33,9 @@ collections:
           - { label: "Hero Subheading", name: "hero_sub", widget: "text" }
           - { label: "Date & Location Status", name: "date_status", widget: "string" }
           - { label: "Date Detail Text", name: "date_detail", widget: "text" }
-          - { label: "Philosophy Paragraph", name: "philosophy", widget: "text" }
-          - { label: "Google Form Embed URL", name: "form_url", widget: "string", required: false, hint: "Paste the src URL from your Google Form's embed code. Leave blank to show a 'coming soon' placeholder." }
+          - { label: "'Who We're Looking For' Heading", name: "philosophy_heading", widget: "string" }
+          - { label: "'Who We're Looking For' Paragraph", name: "philosophy", widget: "text" }
+          - { label: "Google Form Link", name: "form_url", widget: "string", required: false, hint: "Paste your Google Form's share link (the forms.gle/... or docs.google.com/forms/... URL from the Send → link tab). Leave blank to show a 'coming soon' message." }
           - label: "What to Bring List"
             name: "bring_items"
             widget: "list"
@@ -134,3 +135,23 @@ collections:
           - { label: "Player Development Note", name: "development", widget: "text" }
           - { label: "Uniform & Equipment Note", name: "uniform", widget: "text" }
           - { label: "Liability Note", name: "liability", widget: "text" }
+
+  # ── SPONSORS ──
+  - name: "sponsors"
+    label: "Sponsors"
+    files:
+      - name: "sponsors"
+        label: "Sponsors"
+        file: "_data/sponsors.json"
+        fields:
+          - { label: "Page Intro", name: "intro", widget: "text" }
+          - label: "Sponsor List"
+            name: "list"
+            widget: "list"
+            required: false
+            hint: "Add each sponsor with their logo, name, and website."
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Logo", name: "logo", widget: "image", hint: "Upload the sponsor's logo. PNG with transparent background works best." }
+              - { label: "Website URL", name: "url", widget: "string", required: false, hint: "e.g. https://example.com — leave blank if none." }
+              - { label: "Dark background?", name: "dark_bg", widget: "boolean", default: false, hint: "Turn ON if the logo has white/light text that needs a dark tile to be visible." }

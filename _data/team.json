@@ -7,5 +7,18 @@
     { "name": "Ashton Watkins", "initials": "AW", "role": "Assistant Coach", "email": "Coach.Ashton@LawrenceHaymakers.com", "type": "asst" },
     { "name": "Myron Liu", "initials": "ML", "role": "Assistant Coach", "email": "Coach.Myron@LawrenceHaymakers.com", "type": "asst" }
   ],
-  "players": []
+  "players": [
+    { "name": "Roderick L.", "number": "100", "position": "" },
+    { "name": "Turner P.", "number": "20", "position": "" },
+    { "name": "Jack B.", "number": "21", "position": "" },
+    { "name": "Lincoln M.", "number": "99", "position": "" },
+    { "name": "Heaton L.", "number": "50", "position": "" },
+    { "name": "Jim S.", "number": "11", "position": "" },
+    { "name": "Teddy F.", "number": "12", "position": "" },
+    { "name": "Saylor W.", "number": "7", "position": "" },
+    { "name": "Liam T.", "number": "10", "position": "" },
+    { "name": "Ryker H.", "number": "8", "position": "" },
+    { "name": "E.J. O.", "number": "15", "position": "" },
+    { "name": "Kylan K.", "number": "1", "position": "" }
+  ]
 }

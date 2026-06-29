@@ -1,0 +1,85 @@
+---
+layout: base.njk
+title: Sponsors — Lawrence Haymakers
+permalink: /sponsors/
+---
+<style>
+  .sponsors-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+  .sponsor-card { background: white; border: 1px solid var(--rule); border-top: 3px solid var(--yellow); padding: 2rem 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+  .sponsor-logo-box { height: 120px; display: flex; align-items: center; justify-content: center; width: 100%; background: white; border-radius: 6px; padding: 1.25rem; }
+  .sponsor-logo-box.dark { background: var(--green-dark); }
+  .sponsor-logo-box img { max-height: 90px; max-width: 100%; object-fit: contain; }
+  .sponsor-card h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--green-dark); }
+  .sponsor-card a.sponsor-link { font-size: 0.82rem; font-weight: 600; color: var(--green); text-decoration: none; letter-spacing: 0.04em; }
+  .sponsor-card a.sponsor-link:hover { text-decoration: underline; }
+  .sponsors-empty { margin-top: 2.5rem; text-align: center; padding: 3.5rem 2rem; border: 2px dashed var(--rule); background: white; }
+  .sponsors-empty .empty-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .sponsors-empty h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.4rem; text-transform: uppercase; color: var(--green-dark); margin-bottom: 0.5rem; }
+  .sponsors-empty p { font-size: 0.9rem; color: var(--muted); max-width: 420px; margin: 0 auto; }
+  .become-sponsor { background: var(--green-dark); margin-top: 3rem; }
+  .become-sponsor .section-wrap { text-align: center; }
+  .become-sponsor h2 { color: white; }
+  .become-sponsor p { color: rgba(255,255,255,0.75); max-width: 520px; margin: 0 auto 1.5rem; }
+  .sponsor-inquiry { background: var(--yellow); padding: 1.25rem 2rem; }
+  .sponsor-inquiry-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 1rem; justify-content: center; }
+  .sponsor-inquiry-icon { font-size: 1.8rem; flex-shrink: 0; }
+  .sponsor-inquiry-text { display: flex; flex-direction: column; gap: 0.15rem; }
+  .sponsor-inquiry-text strong { font-family: 'Barlow Condensed', sans-serif; font-size: 1.15rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--green-dark); }
+  .sponsor-inquiry-text span { font-size: 0.9rem; color: #5a4a00; line-height: 1.5; }
+  .sponsor-inquiry-text a { color: var(--green-dark); font-weight: 600; text-decoration: underline; }
+  @media (max-width: 600px) { .sponsor-inquiry-inner { flex-direction: column; text-align: center; } }
+</style>
+
+<section class="hero" style="padding-bottom:3.5rem;">
+  <div class="hero-eyebrow">Lawrence Haymakers Baseball</div>
+  <h1>Our <em>Sponsors</em></h1>
+  <p class="hero-sub">{{ sponsors.intro }}</p>
+</section>
+
+<div class="sponsor-inquiry">
+  <div class="sponsor-inquiry-inner">
+    <div class="sponsor-inquiry-icon">🤝</div>
+    <div class="sponsor-inquiry-text">
+      <strong>Interested in sponsoring the Haymakers?</strong>
+      <span>We'd love to hear from you. Reach out to <a href="mailto:Staff@LawrenceHaymakers.com?subject=Sponsorship%20Interest">Staff@LawrenceHaymakers.com</a> to learn about partnership opportunities.</span>
+    </div>
+  </div>
+</div>
+
+<div class="section-wrap">
+  <div class="section-label">Thank You</div>
+  <h2 class="section-title">Proudly Supported By</h2>
+  <div class="divider"></div>
+
+  {% if sponsors.list and sponsors.list.length > 0 %}
+  <div class="sponsors-grid">
+    {% for sponsor in sponsors.list %}
+    <div class="sponsor-card">
+      <div class="sponsor-logo-box{% if sponsor.dark_bg %} dark{% endif %}">
+        <img src="{{ sponsor.logo }}" alt="{{ sponsor.name }} logo" />
+      </div>
+      <h3>{{ sponsor.name }}</h3>
+      {% if sponsor.url %}
+      <a href="{{ sponsor.url }}" target="_blank" rel="noopener" class="sponsor-link">Visit Website →</a>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="sponsors-empty">
+    <div class="empty-icon">🤝</div>
+    <h3>Sponsors Coming Soon</h3>
+    <p>We're grateful to the local businesses and families who support our team. Sponsor logos will appear here.</p>
+  </div>
+  {% endif %}
+</div>
+
+<div class="become-sponsor">
+  <div class="section-wrap">
+    <div class="section-label" style="color:var(--yellow);">Get Involved</div>
+    <h2 class="section-title">Become a Sponsor</h2>
+    <div class="divider"></div>
+    <p>Interested in supporting the Lawrence Haymakers? Sponsorship helps cover equipment, uniforms, field time, and tournament fees — and puts your business in front of our community.</p>
+    <a href="mailto:Staff@LawrenceHaymakers.com?subject=Sponsorship%20Interest" class="btn btn-primary">Email Us About Sponsorship</a>
+  </div>
+</div>

@@ -12,7 +12,10 @@
 <body>
 
   <nav>
-    <a class="nav-brand" href="/">Lawrence Haymakers</a>
+    <a class="nav-brand" href="/">
+      <img src="/images/logo.png" alt="Lawrence Haymakers logo" class="nav-logo" />
+      <span class="nav-wordmark">Lawrence Haymakers</span>
+    </a>
     <button class="nav-toggle" aria-label="Toggle menu" onclick="this.nextElementSibling.classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
@@ -23,6 +26,7 @@
       <a href="/schedule/" {% if page.url == "/schedule/" %}class="active"{% endif %}>Schedule</a>
       <a href="/updates/" {% if page.url == "/updates/" %}class="active"{% endif %}>Updates</a>
       <a href="/packet/" {% if page.url == "/packet/" %}class="active"{% endif %}>Team Packet</a>
+      <a href="/sponsors/" {% if page.url == "/sponsors/" %}class="active"{% endif %}>Sponsors</a>
       <a href="/tryouts/" class="nav-cta">Tryouts</a>
     </div>
   </nav>
@@ -32,14 +36,20 @@
   </main>
 
   <footer>
+    {% if sponsors.list and sponsors.list.length > 0 %}
+    <div class="footer-sponsors">
+      <div class="footer-sponsors-label">Our Sponsors</div>
+      <div class="footer-sponsors-logos">
+        {% for sponsor in sponsors.list %}
+        {% if sponsor.url %}<a href="{{ sponsor.url }}" target="_blank" rel="noopener" class="fs-tile{% if sponsor.dark_bg %} dark{% endif %}">{% else %}<span class="fs-tile{% if sponsor.dark_bg %} dark{% endif %}">{% endif %}
+        <img src="{{ sponsor.logo }}" alt="{{ sponsor.name }}" />
+        {% if sponsor.url %}</a>{% else %}</span>{% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
     <strong>Lawrence Haymakers Baseball</strong> &nbsp;·&nbsp; 10U &nbsp;·&nbsp; Lawrence, KS<br>
     General inquiries: <a href="mailto:Staff@LawrenceHaymakers.com">Staff@LawrenceHaymakers.com</a>
-    <div class="footer-emails">
-      <a href="mailto:Coach.Rick@LawrenceHaymakers.com">Coach.Rick@LawrenceHaymakers.com</a>
-      <a href="mailto:Coach.Brent@LawrenceHaymakers.com">Coach.Brent@LawrenceHaymakers.com</a>
-      <a href="mailto:Coach.Ashton@LawrenceHaymakers.com">Coach.Ashton@LawrenceHaymakers.com</a>
-      <a href="mailto:Coach.Myron@LawrenceHaymakers.com">Coach.Myron@LawrenceHaymakers.com</a>
-    </div>
     <div style="margin-top:1rem;font-size:0.72rem;">© 2026 Lawrence Haymakers Baseball</div>
   </footer>
 
